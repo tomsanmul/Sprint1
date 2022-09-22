@@ -2,23 +2,27 @@
 //Invoca cada funció de l'array iterativament. Haurà de mostrar-se per consola el compte del 0 al 9 deu vegades.
 
 
+    let array_de_funcions = [];
 
-let array_de_funcions = [
-    primera_funcio(){
-        for(let i=0;i<=9;i++)
-        {
+    for(let i=0;i <= 9; i++){
 
-        }
-    },
-    segona_funcio(),
-    tercera_funcio(),
-    cuarta_funcio(),
-    quinta_funcio(),
-    sexta_funcio(),
-    septima_funcio(),
-    vuitena_funcio(),
-    novena_funcio(),
-    desena_funcio()
-];
+        array_de_funcions.push(function() {(i)});
+        
+        
+        console.log(i);
+        
+    }
+
+    console.log(array_de_funcions);
 
 
+
+    /*
+    for(let j=0;j < array_de_funcions.length; j++){
+
+        array_de_funcions[j](funcio(j));
+        console.log(j);
+
+    }
+    */
+    
