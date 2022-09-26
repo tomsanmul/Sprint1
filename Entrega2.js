@@ -41,7 +41,7 @@ let persona = new Persona(parametre).dirNom();
 //Exercici 3.1
 //Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta. Invoca-la amb diferents definicions.
 
-//No entencl'enuncoat. Em recorda un dels exercics del curs passat, que creabem una classe abstracte Edifici, i la instanciavem desde altres clases (Hotels, Cine, Hospitals...)
+//NO ENTENC L'ENUNCIAT. Em recorda un dels exercics del curs passat, que creavem una classe abstracte "Edifici", i la instanciavem desde altres clases ("Hotels", "Cinemes", "Hospitals"...)
 //Mes o menys era així, pero es que no entenc la part final de l'enunciat.
 
 let Hotels = [];
@@ -66,7 +66,7 @@ class EdificiAbstracte {
     }
 
     CostVigilancia() {
-     
+
         return (1500);
 
     }
@@ -80,8 +80,8 @@ class Hotel extends EdificiAbstracte {
         this.habitacions = habitacions;
     }
 
-    CostserveiHabitacions() {  
-        return(1200);  
+    CostserveiHabitacions() {
+        return (1200);
     }
 }
 
@@ -89,12 +89,9 @@ class Hotel extends EdificiAbstracte {
 function CreateObject() {
     let hotel = new Hotel("Hotel Hilton", "22", "73.858 m²", 583);
     Hotels.push(hotel);
-    return(0);
+    return (0);
 }
 
 
 CreateObject();
 console.log(Hotels);
-
-
-
