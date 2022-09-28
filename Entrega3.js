@@ -2,22 +2,28 @@
 //Crea una funció que retorni una Promise que invoqui la funció resolve() o reject() que rep. 
 //Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent depenent de si la Promise es resol o no.
 
-let Cocina = false;  //cambiar a TRUE / FALSE per imprimir el missatge depenent si la promesa es resol
 
-let promise = new Promise(function (resolve, reject) {
-    if (!Cocina) {
-        resolve("Cocinando macarrones...");
-    } else {
-        reject(new Error("Error! Macarrones cocinados"));
-    }
-});
+    function Cocinar(Cocina){
+        return new Promise(function (resolve, reject){
 
-promise.then(resultat => {
-    console.log(resultat);
-})
-.catch(err => {
-    console.log(err.message);
-});
+            if (!Cocina) {
+                resolve("Cocinando macarrones...");
+            } else {
+                reject(new Error("Error! Macarrones cocinados"));
+            }
+        });
+      }
+
+      
+      Cocinar(true)  //cambiar a TRUE / FALSE per imprimir el missatge depenent si la promesa es resol
+        .then(resultat => {
+            console.log(resultat);
+        })
+        .catch(err => {
+            console.log(err.message);
+        });
+
+
 
 
 //Exercici 2
