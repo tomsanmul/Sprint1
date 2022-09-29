@@ -3,6 +3,7 @@
 //Crea una funció asíncrona que rebi un id d'empleat/da i imprimeixi per pantalla el nom de l'empleat/da 
 //i el seu salari, usant les funcions getEmployee() i getSalary() que has definit a la tasca anterior.
 
+/*
 let employees = [{
     id: 1,
     name: 'Linux Torvalds'
@@ -79,16 +80,40 @@ getEmployee(1)
     });
      
 
+*/
+
 
 //Exercici 2
 //Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
 //que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
 
-const funcion_asincrona = async () => 42;
-const value = funcion_asincrona();             // Promise { <fulfilled>: 42 }
 
-console.log(value);
-/*
-const asyncValue = await funcion_asincrona();  // 42
-console.log(asyncValue);
-*/
+async function funcion_asincrona() {
+
+    let num = round(Math.random()*100);
+    
+    ComprovarSiesParell(num)
+    .then(Objemploye => {
+        console.log(`El numero ${num} es Parell`);
+    })
+    .catch(err => {
+        console.log(err.message);
+    });
+
+
+    return;
+  }
+
+const ComprovarSiesParell = (num) => {
+    return new Promise(function (resolve, reject) {
+        if (num % 2 == 0 ){
+                resolve(`El numero ${num} es Parell`);
+            }
+         else
+        {
+            reject(`El numero ${num} es Imparell`);
+        }
+    });
+}
+
+
