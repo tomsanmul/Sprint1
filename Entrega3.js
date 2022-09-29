@@ -132,7 +132,6 @@ let ObjEmployee = new Object();
 ObjEmployee.id = 1;
 ObjEmployee.name = 'Linux Torvalds';
 
-
 getSalary(ObjEmployee)
     .then(ObjSalary => {
         console.log(ObjSalary);
