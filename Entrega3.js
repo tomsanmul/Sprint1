@@ -167,7 +167,7 @@ getEmployee(1)
 //Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
 
 //Poso un Id 5 que no existeix per forçar el catch:
-getEmployee(5)
+getEmployee(1)
     .then(Objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
         getSalary(Objemploye).
         then(ObjSalary => {

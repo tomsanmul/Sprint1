@@ -77,4 +77,18 @@ getEmployee(1)
     .catch(err => {
         console.log(err.message);
     });
-    
+     
+
+
+//Exercici 2
+//Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
+//que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
+
+const funcion_asincrona = async () => 42;
+const value = funcion_asincrona();             // Promise { <fulfilled>: 42 }
+
+console.log(value);
+/*
+const asyncValue = await funcion_asincrona();  // 42
+console.log(asyncValue);
+*/

@@ -41,13 +41,20 @@ let persona = new Persona(parametre).dirNom();
 //Exercici 3.1
 //Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta. Invoca-la amb diferents definicions.
 
+//En JavaScript no tenim una forma explícita per indicar que una classe és abstracta. Però si podem impedir que sigui instanciada i només heredada d'ella.
 //NO ENTENC L'ENUNCIAT. Em recorda un dels exercics del curs passat, que creavem una classe abstracte "Edifici", i la instanciavem desde altres clases ("Hotels", "Cinemes", "Hospitals"...)
-//Mes o menys era així, pero es que no entenc la part final de l'enunciat.
+//Mes o menys era així, pero es que no entenc la part final de l'enunciat "Invoca-la amb diferents definicions." ¿?¿?¿?.
+
 
 let Hotels = [];
 
 class EdificiAbstracte {
+
     constructor(nom, plantes, superficie) {
+        if (new.target === EdificiAbstracte) {  //Impedim que la classe sigui instanciada i només es pugui heredar d'ella
+            throw new Error('Això es una clase Abstracta, no es permet instanciarla directament.');
+        }
+        
         this.nom = nom;
         this.plantes = plantes;
         this.superficie = superficie;
