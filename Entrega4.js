@@ -162,3 +162,5 @@ SumadelsDobles(1, 2, 3).then(resultat => {
 ////Nivell 4
 //- Exercici 1
 //Força i captura tants errors com puguis dels nivells 1 i 2.
+
+getAsyncEmployee(7);
