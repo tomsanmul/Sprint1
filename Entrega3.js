@@ -147,7 +147,7 @@ getSalary(ObjEmployee)
 //niant l'execució de les dues promises de manera que es retorni per la consola el nom de l'empleat/da i el seu salari.
 
 //Invoco primer la funció getEmployee()
-getEmployee(1)
+getEmployee(2)
     .then(Objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
         getSalary(Objemploye).
         then(ObjSalary => {
