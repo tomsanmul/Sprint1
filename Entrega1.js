@@ -1,3 +1,4 @@
+//Nivell1:
 //Exercici1.1:
 // Crea una funció que mostri per consola el nom d'usuari/ària en invocar-la passant-li el nom com a paràmetre.
 
@@ -10,6 +11,7 @@ function MostraNom(Nom) {
 
 
 //---------------------------------------------------------------------------------------------------------------
+//Nivell2:
 //Exercici 2.1:
 //Mostra per consola el nom i cognoms de l'usuari/ària mitjançant template literals, guardant-los en variables i referenciant-les en la impressió del missatge.
 
@@ -24,10 +26,11 @@ function MostraNomiCognom(Nom, Cognom) {
 
 
 //---------------------------------------------------------------------------------------------------------------
+//Nivell2:
 //Exercici 2.2:
 //Invoca una funció que retorni un valor des de dins d'una template literal.
 
-let numero = Mostra();
+let numero = `La suma de 1 + 2 es: ${Mostra()}`;
 console.log(numero);
 
 function Mostra() {
@@ -38,6 +41,7 @@ function Mostra() {
 
 
 //--------------------------------------------------------------------------------------------------------------------------
+//Nivell3:
 //Exercici 3.1:
 //Crea una matriu de deu funcions i emplena-la mitjançant un bucle de manera que cada funció compti del 0 al 9 per la consola. 
 //Invoca cada funció de l'array iterativament. Haurà de mostrar-se per consola el compte del 0 al 9 deu vegades.
