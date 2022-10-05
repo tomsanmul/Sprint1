@@ -1,7 +1,6 @@
 //Nivell 1
 //Exercici 1
 //Crea una funció que, en executar-la, escrigui una frase en un fitxer.
-/*
 
 function EscriureFitxer(fitxer, frase) {
     let fs = require('fs');
@@ -23,23 +22,13 @@ EscriureFitxer(fitxer, frase);
 //Exercici 2
 //Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
 
-
 function LlegirFitxer(fitxer) {
     let fs = require('fs');
-
-    fs.readFile(fitxer, 'utf-8', (err, data) => {
-        if (err) {
-            console.log('error: ', err);
-        } else {
-            console.log(data);
-        }
-    });
-
+    let texto = fs.readFileSync(fitxer,'utf8');
+    return(texto);        
 }
 
-fitxer = "archivo.txt";
-LlegirFitxer(fitxer);
-
+console.log(LlegirFitxer("archivo.txt"));
 
 //---------------------------------------------------------------------------------------
 //Nivell 1
@@ -47,29 +36,41 @@ LlegirFitxer(fitxer);
 //Crea una funció que comprimeixi el fitxer del nivell 1.
 
 function ComprimirFitxer() {
-    let cadena = LlegirFitxer(fitxer);
-    console.log(cadena);
+    var AdmZip = require("adm-zip");
+    var zip = new AdmZip();
+    var texto = LlegirFitxer("archivo.txt");
+    zip.addFile("archivo.txt", Buffer.from(texto, "utf8"), "");
+    zip.writeZip("archivo.zip");
 }
 
 ComprimirFitxer();
-*/
+
+
 
 //---------------------------------------------------------------------------------------
-//Nivell 1
+//Nivell 2
 //Exercici 1
 //Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 
-
-
-const Imprimir_Missatge = async () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Això es un missatge amb demora de 1 segon")
-        }, 1000);
-    });
-
+function Repeteix_Missatge(){
+    setInterval(() => console.log('Això es una prova amb demora de 1 segon'), 1000);
 }
 
+Repeteix_Missatge();
 
-let missatge = await Imprimir_Missatge;
-console.log(missatge);
+
+//-----------------------------------------------------------------------------------------
+//Nivell 2
+//Exercici 2
+//Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador utilizant Node Child Processes.
+
+
+function LlistarArxius(){
+    const fs = require('fs');
+    let arxius = fs.readdirSync("C:/Users/formacio");
+    for (let i=0; i<arxius.length;i++){
+        console.log(arxius[i]);
+    }
+}
+LlistarArxius();
+
