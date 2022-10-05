@@ -141,7 +141,6 @@ RetornaDoble(5).then(resultat => {
 });
 
 
-
 //--------------------------------------------------------------------------------------------------------------
 //Crea una altra funció que rebi tres números i calculi la suma dels seus dobles fent servir la funció anterior.
 
