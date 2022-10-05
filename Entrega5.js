@@ -5,7 +5,7 @@
 function EscriureFitxer(fitxer, frase) {
     let fs = require('fs');
 
-    fs.appendFile(fitxer, frase, function (err) {
+    fs.writeFile(fitxer, frase, function (err) {
         if (err) {
             return console.log(err);
         }
@@ -24,11 +24,12 @@ EscriureFitxer(fitxer, frase);
 
 function LlegirFitxer(fitxer) {
     let fs = require('fs');
-    let texto = fs.readFileSync(fitxer,'utf8');
-    return(texto);        
+    let texto = fs.readFileSync(fitxer, 'utf8');
+    return (texto);
 }
 
 console.log(LlegirFitxer("archivo.txt"));
+
 
 //---------------------------------------------------------------------------------------
 //Nivell 1
@@ -36,15 +37,14 @@ console.log(LlegirFitxer("archivo.txt"));
 //Crea una funció que comprimeixi el fitxer del nivell 1.
 
 function ComprimirFitxer() {
-    var AdmZip = require("adm-zip");
-    var zip = new AdmZip();
-    var texto = LlegirFitxer("archivo.txt");
+    let AdmZip = require("adm-zip");
+    let zip = new AdmZip();
+    let texto = LlegirFitxer("archivo.txt");
     zip.addFile("archivo.txt", Buffer.from(texto, "utf8"), "");
     zip.writeZip("archivo.zip");
 }
 
 ComprimirFitxer();
-
 
 
 //---------------------------------------------------------------------------------------
@@ -64,7 +64,6 @@ Repeteix_Missatge();
 //Exercici 2
 //Crea una funció que llisti per la consola el contingut del directori d'usuari/ària de l'ordinador utilizant Node Child Processes.
 
-
 function LlistarArxius(){
     const fs = require('fs');
     let arxius = fs.readdirSync("C:/Users/formacio");
@@ -74,3 +73,34 @@ function LlistarArxius(){
 }
 LlistarArxius();
 
+
+//---------------------------------------------------------------------------------
+//Nivell 3
+//Exercici 1
+//Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
+
+function EscriureDosFitxers() {
+
+    let fs = require('fs');
+    //Primer llegeixo el fitxer i el copio en una string
+    let textoUTF8 = fs.readFileSync("archivo.txt", 'utf8');
+
+    //Escric el fitxer en Hexadecimal
+    let stringHex = Buffer.from(textoUTF8, 'utf8').toString('hex');
+    fs.writeFileSync("archivoHex.txt", stringHex, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+    //Escric el fitxer en base64
+    let string64 = Buffer.from(textoUTF8, 'utf8').toString('base64');
+    fs.writeFileSync("archivo64.txt", string64, function (err) {
+        if (err) {
+            return console.log(err);
+        }
+    });
+
+}
+
+EscriureDosFitxers();
