@@ -1,7 +1,7 @@
 //Nivell 1
 //Exercici 1
 //Crea una funció que, en executar-la, escrigui una frase en un fitxer.
-
+/*
 function EscriureFitxer(fitxer, frase) {
     let fs = require('fs');
 
@@ -108,7 +108,7 @@ function EscriureDosFitxers() {
 }
 
 EscriureDosFitxers();
-
+*/
 
 //------------------------------------------------------------------------------------------
 //Nivell 3
@@ -124,11 +124,9 @@ function Encripta() {
 
     //Instanciem crypto module
     let crypto = require('crypto');
-    // Definim una contraseña   
-    const password = 'ESCRIUREAQUILACONTRASENYA';
-
+    const password = '1234567890123456';
     const key = crypto.scryptSync(password, 'GfG', 24);
-    const iv = Buffer.alloc(16, 0);
+    const iv = Buffer.alloc(16, 0); // Initialization vector.
     let mykey = crypto.createCipheriv('aes-192-cbc', Buffer.from(key), iv);
 
     let strEncriptat = mykey.update(textoUTF8, 'utf8', 'hex')
@@ -142,7 +140,7 @@ function Encripta() {
         }
     });
 
-
+/*
     //Esborro els altres 3 fitxers:  archivo.txt, archivoHex.txt i archivo64.txt 
     fs = require('fs').promises
     const files = [
@@ -158,8 +156,10 @@ function Encripta() {
             console.error('Error al eliminar els fitxers "archivo.txt" , "archivoHex.txt" i "archivo64.txt"', err)
         })
 }
-
+*/
 Encripta();
+
+
 
 //Nivell 3
 //Exercici 3
@@ -171,9 +171,16 @@ function DesEncripta() {
     let fs = require('fs');
     let textoUTF8 = fs.readFileSync("encriptat.txt", 'utf8');
 
-    //Instanciem crypto module
     let crypto = require('crypto');
+    const password = '1234567890123456';
+    const key = crypto.scryptSync(password, 'GfG', 24);
+    const iv = Buffer.alloc(16, 0); // Initialization vector.
 
-    
+    let mykey = crypto.createDecipheriv('aes-192-cbc', key, iv);
+    let mystr = mykey.update(textoUTF8, 'hex', 'utf8')
+    mystr += mykey.final('utf8');
 
+console.log(mystr); 
 }
+
+console.log(DesEncripta());
