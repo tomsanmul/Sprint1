@@ -16,6 +16,9 @@ node_modules
 # Ignora archivos de ZIP
 .zip
 
+# Ignorar archivo .gitignore
+.gitignore
+
 # Logs
 logs
 *.log

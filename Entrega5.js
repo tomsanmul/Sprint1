@@ -160,3 +160,20 @@ function Encripta() {
 }
 
 Encripta();
+
+//Nivell 3
+//Exercici 3
+//Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
+
+function DesEncripta() {
+
+    //Primer llegeixo el fitxer i el copio en una string amb codificació UTF8
+    let fs = require('fs');
+    let textoUTF8 = fs.readFileSync("encriptat.txt", 'utf8');
+
+    //Instanciem crypto module
+    let crypto = require('crypto');
+
+    
+
+}
