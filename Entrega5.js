@@ -9,6 +9,10 @@ function EscriureFitxer(fitxer, frase) {
         if (err) {
             return console.log(err);
         }
+        else
+        {
+            console.log("S'ha creat el fitxerInicial.txt");        
+        }
     });
 }
 
@@ -16,6 +20,7 @@ let fitxer = "fitxerInicial.txt";
 let frase = "Això es una prova d'escritura en un fitxer." + "\r\n"; //Frase + salto de linea
 EscriureFitxer(fitxer, frase);
 */
+
 
 //---------------------------------------------------------------------------------------
 //Nivell 1
@@ -27,7 +32,6 @@ function LlegirFitxer(fitxer) {
     let texto = fs.readFileSync(fitxer, 'utf8');
     return (texto);
 }
-
 console.log(LlegirFitxer("fitxerInicial.txt"));
 */
 
@@ -38,11 +42,16 @@ console.log(LlegirFitxer("fitxerInicial.txt"));
 //Crea una funció que comprimeixi el fitxer del nivell 1.
 /*
 function ComprimirFitxer() {
+    try{
     let AdmZip = require("adm-zip");
     let zip = new AdmZip();
     zip.addLocalFile('fitxerInicial.txt');
     zip.writeZip("fitxerInicial.zip");
-
+    console.log("S'ha comprimit amb éxit el fitxerInicial.zip");
+    }
+    catch(err){
+        console.log(err.error);
+    }
 }
 
 ComprimirFitxer();
@@ -61,6 +70,7 @@ function Repeteix_Missatge() {
 Repeteix_Missatge();
 */
 
+
 //-----------------------------------------------------------------------------------------
 //Nivell 2
 //Exercici 2
@@ -78,10 +88,12 @@ function LlistarArxius() {
 LlistarArxius();
 */
 
+
 //---------------------------------------------------------------------------------
 //Nivell 3
 //Exercici 1
 //Crea una funció que creï dos fitxers codificats en hexadecimal i en base64 respectivament, a partir del fitxer del nivell 1.
+/*
 
 function EscriureDosFitxers() {
 
@@ -95,9 +107,10 @@ function EscriureDosFitxers() {
     //Escric el fitxer en Hexadecimal
     fs.writeFileSync("fitxerHex.txt", stringHex, function (err) {
         if (err) {
-            return console.log(err);
+            return console.log(err)
         }
     });
+    console.log("S'ha creat el fitxerHex.txt amb éxit.");
 
     //Converteixo el textUTF8 en Base64
     let string64 = Buffer.from(textoUTF8, 'utf8').toString('base64');
@@ -105,13 +118,15 @@ function EscriureDosFitxers() {
     //Escric el fitxer en base64
     fs.writeFileSync("fitxer64.txt", string64, function (err) {
         if (err) {
-            return console.log(err);
-        }
+            return console.log(err)
+        } 
     });
+    console.log("S'ha creat el fitxer64.txt amb éxit.");
 
 }
 
 EscriureDosFitxers();
+*/
 
 
 //------------------------------------------------------------------------------------------
@@ -119,7 +134,8 @@ EscriureDosFitxers();
 //Exercici  2
 //Crea una funció que guardi els fitxers del punt anterior, 
 //ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
-/*
+
+
 function Encripta() {
 
     //Primer llegeixo el fitxer i el copio en una string amb codificació UTF8
@@ -140,9 +156,10 @@ function Encripta() {
 
     fs.writeFileSync("Encriptat.txt", strEncriptat, function (err) {
         if (err) {
-            return console.log(err);
+            return console.log(err)
         }
     });
+    console.log('"fitxerInicial.txt" encriptat correctament a "Encriptat.txt"');
 
 
     //Esborro els altres 3 fitxers:  archivo.txt, archivoHex.txt i archivo64.txt 
@@ -154,6 +171,7 @@ function Encripta() {
     ]
     Promise.all(files.map(file => fs.unlink(file)))
         .then(() => {
+            
             console.log('"fitxerInicial.txt" , "fitxerHex.txt" i "fitxer64.txt" eliminats correctament.')
         })
         .catch(err => {
@@ -164,9 +182,11 @@ function Encripta() {
 Encripta();
 
 
+
 //Nivell 3
 //Exercici 3
 //Crea una altra funció que desencripti i descodifiqui els fitxers de l'apartat anterior tornant a generar una còpia de l'inicial.
+/*
 
 function DesEncripta() {
 
@@ -189,6 +209,7 @@ function DesEncripta() {
             return console.log(err);
         }
     });
+    console.log('fitxer "Encriptat.txt" desencriptat correctament a "fitxerInicial.txt"');
 
 }
 
