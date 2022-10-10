@@ -22,7 +22,7 @@ EscriureFitxer(fitxer, frase);
 */
 
 
-//---------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 //Nivell 1
 //Exercici 2
 //Crea una altra funció que mostri per consola el contingut del fitxer de l'exercici anterior.
@@ -36,7 +36,7 @@ console.log(LlegirFitxer("fitxerInicial.txt"));
 */
 
 
-//---------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------
 //Nivell 1
 //Exercici 3
 //Crea una funció que comprimeixi el fitxer del nivell 1.
@@ -58,11 +58,11 @@ ComprimirFitxer();
 */
 
 
-//---------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------
 //Nivell 2
 //Exercici 1
-//Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 /*
+//Crea una funció que imprimeixi recursivament un missatge per la consola amb demores d'un segon.
 function Repeteix_Missatge() {
     setInterval(() => console.log('Això es una prova amb demora de 1 segon'), 1000);
 }
@@ -135,7 +135,7 @@ EscriureDosFitxers();
 //Crea una funció que guardi els fitxers del punt anterior, 
 //ara encriptats amb l'algoritme aes-192-cbc, i esborri els fitxers inicials.
 
-
+/*
 function Encripta() {
 
     //Primer llegeixo el fitxer i el copio en una string amb codificació UTF8
@@ -144,16 +144,15 @@ function Encripta() {
 
     //Instanciem crypto module
     let crypto = require('crypto');
-    const password = '1234567890123456';
+    const password = '1234567890123456'; //creem una clau que ha de ser la mateixa per desencriptar
     const key = crypto.scryptSync(password, 'GfG', 24);
-    const iv = Buffer.alloc(16, 0); // Initialization vector.
-    let mykey = crypto.createCipheriv('aes-192-cbc', Buffer.from(key), iv);
+    const iv = Buffer.alloc(16, 0); // Inicialitza vector.
+    let mykey = crypto.createCipheriv('aes-192-cbc', Buffer.from(key), iv); //crea la clau
 
     let strEncriptat = mykey.update(textoUTF8, 'utf8', 'hex')
-    strEncriptat += mykey.final('hex');
+    strEncriptat += mykey.final('hex'); //encripto la nova cadena en l'string strEncriptat
 
     //Escric el nou fitxer encriptat.txt amb l'encriptació
-
     fs.writeFileSync("Encriptat.txt", strEncriptat, function (err) {
         if (err) {
             return console.log(err)
@@ -180,7 +179,7 @@ function Encripta() {
 }
 
 Encripta();
-
+*/
 
 
 //Nivell 3
@@ -195,15 +194,15 @@ function DesEncripta() {
     let textoUTF8 = fs.readFileSync("encriptat.txt", 'utf8');
 
     let crypto = require('crypto');
-    const password = '1234567890123456';
+    const password = '1234567890123456'; //La clau es la mateixa que per encriptar
     const key = crypto.scryptSync(password, 'GfG', 24);
-    const iv = Buffer.alloc(16, 0); // Initialization vector.
+    const iv = Buffer.alloc(16, 0); // Inicialitza vector.
 
     let mykey = crypto.createDecipheriv('aes-192-cbc', key, iv);
     let mystr = mykey.update(textoUTF8, 'hex', 'utf8')
     mystr += mykey.final('utf8');
 
-    //Torno a escriure el fitxer inicial
+    //Torno a escriure el fitxer inicial fitxerInicial.txt
     fs.writeFile("fitxerInicial.txt", mystr, function (err) {
         if (err) {
             return console.log(err);
