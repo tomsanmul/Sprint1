@@ -56,3 +56,7 @@ test('Que els parámetres que li pasi no siguin text', () => {
   expect(divideix("hola", "th")).toBe(false);
 });
 
+
+
+
+//Crea els tests corresponents per verificar el funcionament de les dues funcions de l'exercici Promises i Callbacks N1 E2.
