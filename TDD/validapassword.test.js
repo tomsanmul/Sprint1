@@ -9,12 +9,14 @@ test('suma 2 + 2 es igual a 4', () => {
 });
 */
 
-console.log(validapassword(""));
-console.log(validapassword("abc123"));
-console.log(validapassword("1234567890"));
-
-
 /*
+console.log(validapassword("") === false);
+console.log(validapassword("abc123") === false);
+console.log(validapassword("1234567890") === false);
+console.log(validapassword("1234567d890") === true);
+*/
+
+
 test('Retorna false si el password es buit', () => {
   expect(validapassword("")).toBe(false);
 });
@@ -28,10 +30,10 @@ test('Retorna false si el password no tiene letras', () => {
 });
 
 test('Retorna false si el password no tiene numeros', () => {
-  expect(validapassword("abcdefghijk")).toBe(false);
+  expect(validapassword("1234567d890")).toBe(true);
 });
 
-*/
+
 
 /*
 test('resta 2 - 1 es igual a 1', () => {
