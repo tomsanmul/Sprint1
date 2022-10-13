@@ -5,7 +5,7 @@ console.log((AutoArrowfunction = () => {
     let x = 1;
     let y = 2;
     return(x + y);
-})());
+})()); 
 
 
 //Exercici 2.1
