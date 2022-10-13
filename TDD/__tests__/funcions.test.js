@@ -91,6 +91,7 @@ describe('Verificar funcionament de getEmployee (Exercici Promises i Callbacks)'
     expect(getSalary(Obj)).toEqual({id: 1, salary: 4000});
   });
 
+  
 //Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await N1 E2.
 
 //--------------------------------------------------------------------------------------------------------------
