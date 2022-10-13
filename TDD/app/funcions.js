@@ -60,6 +60,9 @@ let salaries = [{
 
 
 const getEmployee = (Id) => {
+  if (Id == "" || Id == "" || isNaN(Id) || isNaN(Id) || Id <= 0){
+    return false;
+  } 
   return new Promise(function (resolve, reject) {
       let encontrado = false;
       let i = 0;

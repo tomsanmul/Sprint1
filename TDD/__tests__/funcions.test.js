@@ -65,34 +65,32 @@ describe('Revisió de paràmetres', () => {
 });
 
 
-//Crea els tests corresponents per verificar el funcionament de les dues funcions de l'exercici Promises i Callbacks N1 E2.
+//Crea els tests corresponents per verificar el funcionament de les dues funcions 
+//de l'exercici Promises i Callbacks N1 E2.
 
-//Crea els tests corresponents per verificar el funcionament de les funcions de l'exercici 
-//Promises i Callbacks N2 E1 i Promises i Callbacks N2 E2 (getEmployee() i getSalary()).
-describe('Verificar funcionament de Exercici Promises i Callbacks', () => {
+describe('Verificar funcionament de getEmployee (Exercici Promises i Callbacks)', () => {
+  test('El Id no debe ser vacío', () => {
+    expect(getEmployee("")).toBe(false);
+  });
 
-  test('El Id 1 debe coinicidir con Linux Torvals', () => {
-    const obj = {
-      id: '1',
-      name: 'Linux Torvalds'
-    };
+  test('El Id 1 debe ser numérico', () => {
+    expect(getEmployee("alpha")).toBe(false);
+  });
 
-    expect(getEmployee(1));
-    expect(obj.id).toEqual('1');
-    expect(obj.name).toEqual('Linux Torvalds');
-
+  test('El Id 1 debe ser numérico y mayor que 0', () => {
+    expect(getEmployee("-1")).toBe(false);
   });
 
 
-/*
-  test('El Id 1 debe coinicidir con Linux Torvals', () => {
-    const obj = {
-      id: 1,
-      name: 'Linux Torvalds'
-    };
-    expect(getSalary(obj)).toBe('4000');
+ //Crea els tests corresponents per verificar el funcionament de les funcions de l'exercici 
+ //Promises i Callbacks N2 E1 i Promises i Callbacks N2 E2 (getEmployee() i getSalary()).
 
+
+  test('El Objeto Id 1 Employee debe coincidir con el salario de Id 1 y salario 4000', () => {
+    const Obj = {id: 1, name: 'Linux Torvalds' };
+    expect(getSalary(Obj)).toEqual({id: 1, salary: 4000});
   });
-*/
+
+//Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await N1 E2.
 
 });
