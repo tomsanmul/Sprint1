@@ -1,11 +1,11 @@
 //Exercici 1
 //Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
 
-(AutoArrowfunction = () => {
+console.log((AutoArrowfunction = () => {
     let x = 1;
     let y = 2;
-    console.log(x + y);
-})();
+    return(x + y);
+})());
 
 
 //Exercici 2.1
