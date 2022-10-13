@@ -73,7 +73,7 @@ let ObjHotel3 = CrearHotel("Hotel Ritz", 4, "12.476 m²");
 
 console.log(ObjHotel1);
 console.log(ObjHotel2);
-console.log(ObjHotel3);
+console.log(ObjHotel3); 
 
 
 
