@@ -151,7 +151,7 @@ getEmployee(1)
 //- Exercici 1
 //Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
 
-//Poso un Id 5 que no existeix per forçar el catch:
+//Poso un Id 5 que no existeix per forçar el catch: 
 getEmployee(6)
     .then(objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
         getSalary(objemploye).
