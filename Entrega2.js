@@ -1,11 +1,11 @@
 //Exercici 1
 //Mostra per la consola el resultat d'una arrow function autoinvocable que sumi dos nombres.
 
-(AutoArrowfunction = () => {
+console.log((AutoArrowfunction = () => {
     let x = 1;
     let y = 2;
-    console.log(x + y);
-})();
+    return(x + y);
+})()); 
 
 
 //Exercici 2.1
@@ -36,6 +36,7 @@ class Persona {
 
 let parametre = "Tomas";
 let persona = new Persona(parametre).dirNom();
+
 
 
 //Exercici 3.1
@@ -72,4 +73,11 @@ let ObjHotel3 = CrearHotel("Hotel Ritz", 4, "12.476 m²");
 
 console.log(ObjHotel1);
 console.log(ObjHotel2);
+<<<<<<< HEAD
 console.log(ObjHotel3); 
+=======
+console.log(ObjHotel3); 
+
+
+
+>>>>>>> aa8bfbb33dc4e4c10ca0df7af4671aa1aa2acca5
