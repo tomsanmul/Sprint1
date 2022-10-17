@@ -4,10 +4,10 @@
 //Invoca-la passant-li les dues funcions de manera que imprimeixin un missatge diferent depenent de si la Promise es resol o no.
 
 
-function Cocinar(Cocina) {
+function cocinar(cocina) {
     return new Promise(function (resolve, reject) {
 
-        if (!Cocina) {
+        if (!cocina) {
             resolve("Cocinando macarrones...");
         } else {
             reject(new Error("Error! Macarrones cocinados"));
@@ -16,7 +16,7 @@ function Cocinar(Cocina) {
 }
 
 
-Cocinar(false) //cambiar a TRUE / FALSE per imprimir el missatge depenent si la promesa es resol
+cocinar(false) //cambiar a TRUE / FALSE per imprimir el missatge depenent si la promesa es resol
     .then(resultat => {
         console.log(resultat);
     })
@@ -32,7 +32,7 @@ Cocinar(false) //cambiar a TRUE / FALSE per imprimir el missatge depenent si la 
 //i li passi a la funció un missatge o un altre (que s'imprimirà per consola) en funció del paràmetre rebut.
 
 
-const VerificasiesParell = (numero, Callback) => {
+const verificasiesParell = (numero, Callback) => {
     if (numero % 2 == 0) {
         Callback(`El número ${numero} es parell`);
     } else {
@@ -41,11 +41,11 @@ const VerificasiesParell = (numero, Callback) => {
 
 }
 
-function MostraResultat(resultat) {
+function mostraResultat(resultat) {
     console.log(resultat);
 }
 
-VerificasiesParell(4, MostraResultat);
+verificasiesParell(4, mostraResultat);
 
 
 
@@ -137,9 +137,6 @@ getEmployee(1)
         getSalary(objemploye).
         then(objSalary => {
                 console.log(`Nom Empleat: ${objemploye.name}. Salari: ${objSalary.salary}`);
-            })
-            .catch(err => {
-                console.log(err.message);
             });
     })
     .catch(err => {
@@ -157,9 +154,6 @@ getEmployee(6)
         getSalary(objemploye).
         then(objSalary => {
                 console.log(`Nom Empleat: ${objemploye.name}. Salari: ${objSalary.salary}`);
-            })
-            .catch(err => {
-                console.log(err.message);
             });
     })
     .catch(err => {
