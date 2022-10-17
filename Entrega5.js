@@ -30,9 +30,9 @@ EscriureFitxer(fitxer, frase);
 function LlegirFitxer(fitxer) {
     let fs = require('fs');
     let texto = fs.readFileSync(fitxer, 'utf8');
-    return (texto);
+    console.log(texto);
 }
-console.log(LlegirFitxer("fitxerInicial.txt"));
+LlegirFitxer("fitxerInicial.txt");
 */
 
 
@@ -40,21 +40,22 @@ console.log(LlegirFitxer("fitxerInicial.txt"));
 //Nivell 1
 //Exercici 3
 //Crea una funció que comprimeixi el fitxer del nivell 1.
+
 /*
-function ComprimirFitxer() {
-    try{
-    let AdmZip = require("adm-zip");
-    let zip = new AdmZip();
-    zip.addLocalFile('fitxerInicial.txt');
-    zip.writeZip("fitxerInicial.zip");
-    console.log("S'ha comprimit amb éxit el fitxerInicial.zip");
-    }
-    catch(err){
-        console.log(err.error);
-    }
+const { createReadStream, createWriteStream } = require("fs");
+const { createGzip } = require("zlib");
+
+function ComprimirFitxer(fitxer) {
+  const stream = createReadStream(fitxer);
+  stream
+    .pipe(createGzip())
+    .pipe(createWriteStream(`${fitxer}.gz`))
+    .on("finish", () =>
+      console.log(`${fitxer} comprimit correctament!`)
+    );
 }
 
-ComprimirFitxer();
+ComprimirFitxer("fitxerinicial.txt");
 */
 
 
