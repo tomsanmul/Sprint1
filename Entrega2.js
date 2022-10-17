@@ -50,6 +50,7 @@ class HotelAbstracte {
         if (new.target === HotelAbstracte) {  //Impedim que la classe sigui instanciada i només es pugui heredar d'ella
             throw new Error('Això es una clase Abstracta, no es permet instanciarla directament.');
         }       
+
         this.nom = nom;
         this.plantes = plantes;
         this.superficie = superficie;
@@ -59,6 +60,7 @@ class HotelAbstracte {
 
 
 function CrearHotel(nom, plantes, superficie) {
+   
     return Object.create(HotelAbstracte.prototype, {
 		"nom" : {value: nom},
 		"plantes":{value: plantes},
@@ -69,8 +71,8 @@ function CrearHotel(nom, plantes, superficie) {
 
 let ObjHotel1 = CrearHotel("Hotel Hilton", 10, "72.458 m²");
 let ObjHotel2 = CrearHotel("Hotel Paris", 6, "33.834 m²");
-let ObjHotel3 = CrearHotel("Hotel Ritz", 4, "12.476 m²");
+//let ObjHotel3 = new HotelAbstracte("Hotel Ritz", 4, "12.476 m²");   // Dona error si intento instanciar la classe directament
 
 console.log(ObjHotel1);
 console.log(ObjHotel2);
-console.log(ObjHotel3); 
+
