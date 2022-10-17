@@ -44,45 +44,25 @@ const getEmployee = (Id) => {
     });
 }
 
-const getSalary = (Employee) => {
-    return new Promise(function (resolve, reject) {
-        let encontrado = false;
-        let i = 0;
-        while ((i < employees.length) && (!encontrado)) {
-            if (Employee.id === employees[i].id && Employee.name === employees[i].name) {
-                //encontrado
-                encontrado = true;
-                resolve(salaries[i]).salary;
-            }
-            i++;
-        }
-
-        if (!encontrado) {
-            reject(new Error(`No s'ha trobat l'objecte {id: ${Employee.id}, name: id: '${Employee.name}'} en l'objecte Employees`));
-        }
+const getSalary = (employee) =>
+    new Promise((resolve, reject) => {
+        let salari = salaries.find((empleat) => empleat.id == employee.id);
+        salari ? resolve(salari) : reject(new Error(`No s'ha trobat l'objecte id: ${employee.id}`));
     });
+
+
+
+async function getAsyncEmployee(employeeId) {
+    try {
+        let objEmployee = await getEmployee(employeeId);
+        let objSalary = await getSalary(objEmployee);
+        console.log(`${objEmployee.name} té un salari de: ${objSalary.salary}`);
+    } catch (error) {
+        console.log(`No s'ha trobat l'empleat amb el ID: ${employeeId}`);
+    }
 }
 
-
-async function getAsyncEmployee(num) {
-
-    getEmployee(num)
-        .then(Objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
-            getSalary(Objemploye).
-            then(ObjSalary => {
-                    console.log(`Nom Empleat: ${Objemploye.name}. Salari: ${ObjSalary.salary}`);
-                })
-                .catch(err => {
-                    console.log(err.message);
-                });
-        })
-        .catch(err => {
-            console.log(err.message);
-        });
-
-}
-
-getAsyncEmployee(2);
+getAsyncEmployee(3);
 
 
 //------------------------------------------------------------------------------
@@ -90,32 +70,26 @@ getAsyncEmployee(2);
 //Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
 //que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
 
-async function funcion_asincrona() {
-
-    let num = Math.floor(Math.random() * 10) + 1;
-
-    ComprovarSiesParell(num)
-        .then(result => {
-            console.log(`El numero ${num} es ${result}`);
-        })
-        .catch(err => {
-            console.log(err.result);
-        });
-
-
-    return;
-}
-
-const ComprovarSiesParell = (num) => {
-    return new Promise((resolve, reject) => {
+const comprovarSiesParell = (num) => {
+    return new Promise((resolve) => {
         setTimeout(() => {
             if (num % 2 == 0) {
-                resolve(`Parell`);
+                resolve(`El numero ${num} es Parell (amb retràs de 2 segons)`);
             } else {
-                resolve(`Imparell`);
+                resolve(`El numero ${num} es Imparell (amb retràs de 2 segons)`);
             }
         }, 2000);
     });
+}
+
+async function funcion_asincrona() {
+    try {
+        let num = Math.floor(Math.random() * 10) + 1;
+        const result = await comprovarSiesParell(num);
+        console.log(result);
+    } catch (error) {
+        console.log("Error");
+    }
 }
 
 funcion_asincrona();
@@ -127,16 +101,20 @@ funcion_asincrona();
 //Exercici 1
 //Crea una funció que retorni el doble del número que li passa com a paràmetre després de 2 segons.
 
-const RetornaDoble = async (numero) => {
+const retornaDoble = async (numero) => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(numero * 2)
-        }, 2000);
+        try {
+            setTimeout(() => {
+                resolve(numero * 2)
+            }, 2000);
+        } catch (error) {
+            console.log("Error, algún nombre no es numèric.");
+        }
     });
 
 }
 
-RetornaDoble(5).then(resultat => {
+retornaDoble(5).then(resultat => {
     console.log(resultat);
 });
 
@@ -144,16 +122,21 @@ RetornaDoble(5).then(resultat => {
 //--------------------------------------------------------------------------------------------------------------
 //Crea una altra funció que rebi tres números i calculi la suma dels seus dobles fent servir la funció anterior.
 
-async function SumadelsDobles(numero1, numero2, numero3) {
-    let num1 = await RetornaDoble(numero1);
-    let num2 = await RetornaDoble(numero2);
-    let num3 = await RetornaDoble(numero3);
-    return (num1 + num2 + num3);
+async function sumadelsDobles(numero1, numero2, numero3) {
+    try {
+        let num1 = await retornaDoble(numero1);
+        let num2 = await retornaDoble(numero2);
+        let num3 = await retornaDoble(numero3);
+        let suma = num1 + num2 + num3;
+        console.log(`La suma del doble dels números ${numero1}, ${numero2} i ${numero3} és: ${suma}`);
+
+    } catch (error) {
+        console.log("Error, algún nombre no es numèric.");
+    }
 }
 
-SumadelsDobles(1, 2, 3).then(resultat => {
-    console.log(resultat);
-});
+sumadelsDobles(1, 2, 3);
+
 
 
 
@@ -162,4 +145,13 @@ SumadelsDobles(1, 2, 3).then(resultat => {
 //- Exercici 1
 //Força i captura tants errors com puguis dels nivells 1 i 2.
 
+//Error 1, pasar-li un ID que no existeix
 getAsyncEmployee(7);
+//Error 2, pasar-li lletres enlloc de un numero
+getAsyncEmployee("prova");
+//Error 3, pasar-li buit el paràmetre
+getAsyncEmployee("");
+
+// Error en el Exercici N2E2
+//sumadelsDobles(1, "er", 3);
+retornaDoble("fdf");
