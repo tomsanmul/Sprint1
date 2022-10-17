@@ -77,12 +77,12 @@ let salaries = [{
 }];
 
 
-const getEmployee = (Id) => {
+const getEmployee = (id) => {
     return new Promise(function (resolve, reject) {
         let encontrado = false;
         let i = 0;
         while ((i < employees.length) && (!encontrado)) {
-            if (Id == employees[i].id) {
+            if (id == employees[i].id) {
                 encontrado = true;
                 resolve(employees[i]);
             }
@@ -90,14 +90,18 @@ const getEmployee = (Id) => {
         }
 
         if (!encontrado) {
-            reject(new Error(`No s'ha trobat l'empleat Id ${Id} en l'objecte Employees`));
+            reject(new Error(`No s'ha trobat l'empleat Id ${id} en l'objecte Employees`));
         }
     });
 }
 
+
+
 getEmployee(1)
-    .then(Objemploye => {
-        console.log(Objemploye);
+    .then(objEmploye => {
+        console.log(`Empleat trobat: Id: ${objEmploye.id} - Nom: ${objEmploye.name}`);
+        let empleat = new Object;
+        empleat = objEmploye;
     })
     .catch(err => {
         console.log(err.message);
@@ -108,37 +112,18 @@ getEmployee(1)
 //Exercici 2
 //Crea una altra arrow function getSalary() similar a l'anterior que rebi com a paràmetre un objecte employee i retorni el seu salari.
 
-const getSalary = (Employee) => {
-    return new Promise(function (resolve, reject) {
-        let encontrado = false;
-        let i = 0;
-        while ((i < employees.length) && (!encontrado)) {
-            if (Employee.id === employees[i].id && Employee.name === employees[i].name) {
-                //encontrado
-                encontrado = true;
-                resolve(salaries[i]).salary;
-            }
-            i++;
-        }
 
-        if (!encontrado) {
-            reject(new Error(`No s'ha trobat l'objecte {id: ${Employee.id}, name: id: '${Employee.name}'} en l'objecte Employees`));
-        }
+const getSalary = (employee) =>
+    new Promise((resolve, reject) => {
+        //usar un metode d'arrays per trobar el que busques
+        let salari = salaries.find((empleat) => empleat.id == employee.id);
+        salari ? resolve(salari) : reject(new Error(`No s'ha trobat l'objecte id: ${employee.id}`));
     });
-}
 
 
-let ObjEmployee = new Object();
-ObjEmployee.id = 1;
-ObjEmployee.name = 'Linux Torvalds';
-
-getSalary(ObjEmployee)
-    .then(ObjSalary => {
-        console.log(ObjSalary);
-    })
-    .catch(err => {
-        console.log(err.message);
-    });
+getSalary(employees[0]).then((salari) =>
+    console.log(`El salari de ${employees[0].name} es: ${salari.salary}`)
+);
 
 
 //NIVELL 2    
@@ -147,11 +132,11 @@ getSalary(ObjEmployee)
 //niant l'execució de les dues promises de manera que es retorni per la consola el nom de l'empleat/da i el seu salari.
 
 //Invoco primer la funció getEmployee()
-getEmployee(2)
-    .then(Objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
-        getSalary(Objemploye).
-        then(ObjSalary => {
-                console.log(`Nom Empleat: ${Objemploye.name}. Salari: ${ObjSalary.salary}`);
+getEmployee(1)
+    .then(objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
+        getSalary(objemploye).
+        then(objSalary => {
+                console.log(`Nom Empleat: ${objemploye.name}. Salari: ${objSalary.salary}`);
             })
             .catch(err => {
                 console.log(err.message);
@@ -162,16 +147,16 @@ getEmployee(2)
     });
 
 
- // NIVELL 3:
+// NIVELL 3:
 //- Exercici 1
 //Fixa un element catch a la invocació del nivell anterior que capturi qualsevol error i el mostri per la consola.
 
 //Poso un Id 5 que no existeix per forçar el catch:
-getEmployee(7)
-    .then(Objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
-        getSalary(Objemploye).
-        then(ObjSalary => {
-                console.log(`Nom Empleat: ${Objemploye.name}. Salari: ${ObjSalary.salary}`);
+getEmployee(6)
+    .then(objemploye => { //Amb el resultat de ObjEmploye, crido getSalary()
+        getSalary(objemploye).
+        then(objSalary => {
+                console.log(`Nom Empleat: ${objemploye.name}. Salari: ${objSalary.salary}`);
             })
             .catch(err => {
                 console.log(err.message);

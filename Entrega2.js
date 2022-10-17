@@ -40,65 +40,36 @@ let persona = new Persona(parametre).dirNom();
 
 //Exercici 3.1
 //Escriu una function creadora d'objectes que faci instàncies d'una classe abstracta. Invoca-la amb diferents definicions.
+//En JavaScript no tenim una forma explícita per indicar que una classe és abstracta. 
+//Però si podem impedir que sigui instanciada i només heredada d'ella.
 
-//En JavaScript no tenim una forma explícita per indicar que una classe és abstracta. Però si podem impedir que sigui instanciada i només heredada d'ella.
-//NO ENTENC L'ENUNCIAT. Em recorda un dels exercics del curs passat, que creavem una classe abstracte "Edifici", i la instanciavem desde altres clases ("Hotels", "Cinemes", "Hospitals"...)
-//Mes o menys era així, pero es que no entenc la part final de l'enunciat "Invoca-la amb diferents definicions." ¿?¿?¿?.
-
-
-let Hotels = [];
-
-class EdificiAbstracte {
+class HotelAbstracte {
 
     constructor(nom, plantes, superficie) {
-        if (new.target === EdificiAbstracte) {  //Impedim que la classe sigui instanciada i només es pugui heredar d'ella
+        if (new.target === HotelAbstracte) {  //Impedim que la classe sigui instanciada i només es pugui heredar d'ella
             throw new Error('Això es una clase Abstracta, no es permet instanciarla directament.');
-        }
-        
+        }       
         this.nom = nom;
         this.plantes = plantes;
         this.superficie = superficie;
     }
 
-    getnom() {
-        return this.nom;
-    }
-
-    getplantes() {
-        return this.plantes;
-    }
-
-    getsuperficie() {
-        return this.superficie;
-    }
-
-    CostVigilancia() {
-
-        return (1500);
-
-    }
-
-
-}
-
-class Hotel extends EdificiAbstracte {
-    constructor(nom, plantes, superficie, habitacions) {
-        super(nom, plantes, superficie);
-        this.habitacions = habitacions;
-    }
-
-    CostserveiHabitacions() {
-        return (1200);
-    }
 }
 
 
-function CreateObject() {
-    let hotel = new Hotel("Hotel Hilton", "22", "73.858 m²", 583);
-    Hotels.push(hotel);
-    return (0);
+function CrearHotel(nom, plantes, superficie) {
+    return Object.create(HotelAbstracte.prototype, {
+		"nom" : {value: nom},
+		"plantes":{value: plantes},
+		"superficie":{value: superficie}
+	});
 }
 
 
-CreateObject();
-console.log(Hotels);
+let ObjHotel1 = CrearHotel("Hotel Hilton", 10, "72.458 m²");
+let ObjHotel2 = CrearHotel("Hotel Paris", 6, "33.834 m²");
+let ObjHotel3 = CrearHotel("Hotel Ritz", 4, "12.476 m²");
+
+console.log(ObjHotel1);
+console.log(ObjHotel2);
+console.log(ObjHotel3); 
