@@ -18,7 +18,7 @@ describe('Verificar funcionament de getEmployee (Exercici Promises i Callbacks)'
   
    //Crea els tests corresponents per verificar el funcionament de les funcions de l'exercici 
    //Promises i Callbacks N2 E1 i Promises i Callbacks N2 E2 (getEmployee() i getSalary()).
-  
+/*  
   
     test('El Objeto Id 1 Employee debe coincidir con el salario de Id 1 y salario 4000', () => {
       const Obj = {id: 1, name: 'Linux Torvalds' };
@@ -33,7 +33,7 @@ describe('Verificar funcionament de getEmployee (Exercici Promises i Callbacks)'
     });
 });
     
-
+*/
   //--------------------------------------------------------------------------------------------------------------
   //Nivell 2 
   //Verifica mitjançant tests l'execució de l'exercici Async / Await N2 E1 utilitzant Jest Fake Timers.
