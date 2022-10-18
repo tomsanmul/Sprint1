@@ -9,7 +9,7 @@ En el segon, el de promisescallbacks.test.js em falla lo de la funció asíncron
 Encara que he afegit l'argument --detectOpenHandles , no em funciona.
 
 
-En la carpeta app  he colat el .js del exercicis:
+En la carpeta app  he colocat el .js del exercicis:
 app
     funcions.js
     promisescallbacks.js
