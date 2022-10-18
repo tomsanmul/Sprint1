@@ -67,7 +67,7 @@ let employees = [{
   
   
   
-  // Esportació de totes les funcions per el Testing  
+  // Exportació de totes les funcions per el Testing  
 
   module.exports = {
     getEmployee,
