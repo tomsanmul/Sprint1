@@ -26,7 +26,7 @@ let employees = [{
   
   
   const getEmployee = (Id) => {
-    if (Id == "" || Id == "" || isNaN(Id) || isNaN(Id) || Id <= 0){
+    if (Id == "" || isNaN(Id) || Id <= 0){
       return false;
     } 
     return new Promise(function (resolve, reject) {
@@ -47,6 +47,9 @@ let employees = [{
   }
   
   const getSalary = (Employee) => {
+    if (Employee == "" || isNaN(Employee)){
+      return false;
+    }
     return new Promise(function (resolve, reject) {
         let encontrado = false;
         let i = 0;
@@ -65,13 +68,44 @@ let employees = [{
     });
   }
   
+
+
+  //------------------------------------------------------------------------------
+//Exercici 2
+//Crea una nova funció asíncrona que cridi a una altra que retorni una Promise 
+//que efectuï la seva funció resolve() després de 2 segons de la seva invocació.
+
+const comprovarSiesParell = (num) => {
+  return new Promise((resolve) => {
+      setTimeout(() => {
+          if (num % 2 == 0) {
+              resolve(`El numero ${num} es Parell (amb retràs de 2 segons)`);
+          } else {
+              resolve(`El numero ${num} es Imparell (amb retràs de 2 segons)`);
+          }
+      }, 2000);
+  });
+}
+
+async function funcion_asincrona() {
+  try {
+      let num = Math.floor(Math.random() * 10) + 1;
+      const result = await comprovarSiesParell(num);
+      //console.log(result);
+      return(result);
+  } catch (error) {
+      console.log("Error");
+  }
+}
+
   
   
   // Exportació de totes les funcions per el Testing  
 
   module.exports = {
     getEmployee,
-    getSalary
+    getSalary,
+    funcion_asincrona
 
   }
   

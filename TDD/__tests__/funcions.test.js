@@ -3,10 +3,11 @@ const {
   resta,
   multiplica,
   divideix
-} = require('../app/funcions');
+} = require('../app/funcions.js');
 
 
-describe('Operacions Suma, Resta, Multiplicar i Dividir', () => {
+describe('Operacions Suma, Resta, Multiplicar i Dividir siguin correctes', () => {
+
   test('suma 2 + 2 es igual a 4', () => {
     expect(suma(2, 2)).toBe(4);
   });
