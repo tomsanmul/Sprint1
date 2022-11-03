@@ -16,7 +16,7 @@ function escriureFitxer(fitxer, frase) {
         }
     });
 }
-
+ 
 let fitxer = "fitxerInicial.txt";
 let frase = "Això es una prova d'escritura en un fitxer." + "\r\n"; //Frase + salto de linea
 escriureFitxer(fitxer, frase);
