@@ -11,5 +11,9 @@
     "url": "tomsanmul/Sprint1/TDD"
   },
   "author": "Tomas Sans",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.1.2"
+  }
 }
+
