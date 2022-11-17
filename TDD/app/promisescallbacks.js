@@ -91,14 +91,13 @@ async function funcion_asincrona() {
   try {
       let num = Math.floor(Math.random() * 10) + 1;
       const result = await comprovarSiesParell(num);
-      //console.log(result);
+      console.log(result);
       return(result);
   } catch (error) {
       console.log("Error");
   }
 }
 
-  
   
   // Exportació de totes les funcions per el Testing  
 
@@ -108,5 +107,4 @@ async function funcion_asincrona() {
     funcion_asincrona
 
   }
-  
   

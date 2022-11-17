@@ -47,7 +47,8 @@ describe('getSalary no li pots pasar un paràmetre buit', () => {
 /*
 describe(`Tests de la funció asíncrona`, () => {
   test(`Espera simplement que torni true`, () => {
-    expect(funcion_asincrona()).toBe(string);
+    expect(funcion_asincrona()).toBe(typeof(string));
   });
 });
 */
+
