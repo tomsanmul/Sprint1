@@ -13,7 +13,6 @@
   "author": "Tomas Sans",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.1.2"
+    "jest": "^29.3.1"
   }
 }
-
