@@ -92,9 +92,10 @@ async function funcion_asincrona() {
       let num = Math.floor(Math.random() * 10) + 1;
       const result = await comprovarSiesParell(num);
       console.log(result);
-      return(result);
+      return(true);
   } catch (error) {
       console.log("Error");
+      return(false);
   }
 }
 

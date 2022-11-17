@@ -43,12 +43,10 @@ describe('getSalary no li pots pasar un paràmetre buit', () => {
 //Nivell 1 Exercici 4 
 //Crea els tests corresponents per verificar el funcionament de l'exercici Async / Await N1 E2.
 
-//FALLA, estic buscant la manera de que esperi el resultat TRUE de la funció asíncrona.
-/*
 describe(`Tests de la funció asíncrona`, () => {
   test(`Espera simplement que torni true`, () => {
-    expect(funcion_asincrona()).toBe(typeof(string));
+    expect(funcion_asincrona()).toBeTruthy();
   });
 });
-*/
+
 

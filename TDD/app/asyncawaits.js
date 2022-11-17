@@ -62,7 +62,7 @@ async function getAsyncEmployee(employeeId) {
     }
 }
 
-getAsyncEmployee(3);
+//getAsyncEmployee(3);
 
 
 //------------------------------------------------------------------------------
@@ -92,7 +92,7 @@ async function funcion_asincrona() {
     }
 }
 
-funcion_asincrona();
+//funcion_asincrona();
 
 
 
@@ -114,10 +114,11 @@ const retornaDoble = async (numero) => {
 
 }
 
+/*
 retornaDoble(5).then(resultat => {
     console.log(resultat);
 });
-
+*/
 
 //--------------------------------------------------------------------------------------------------------------
 //Crea una altra funció que rebi tres números i calculi la suma dels seus dobles fent servir la funció anterior.
@@ -135,7 +136,7 @@ async function sumadelsDobles(numero1, numero2, numero3) {
     }
 }
 
-sumadelsDobles(1, 2, 3);
+//sumadelsDobles(1, 2, 3);
 
 
 
@@ -144,7 +145,7 @@ sumadelsDobles(1, 2, 3);
 ////Nivell 4
 //- Exercici 1
 //Força i captura tants errors com puguis dels nivells 1 i 2.
-
+/*
 //Error 1, pasar-li un ID que no existeix
 getAsyncEmployee(7);
 //Error 2, pasar-li lletres enlloc de un numero
@@ -155,7 +156,7 @@ getAsyncEmployee("");
 // Error en el Exercici N2E2
 //sumadelsDobles(1, "er", 3);
 retornaDoble("fdf");
-
+*/
 
 
 
