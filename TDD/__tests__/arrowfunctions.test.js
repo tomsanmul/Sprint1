@@ -1,13 +1,16 @@
-import '../app/arrowfunctions.js';
 
 //Nivell 2 Exercici 2
 //Crea un mock que comprovi les crides al constructor de la classe Persona i al seu mètode. 
 //dirNom() en l'exercici Classes & Arrow Functions - N2 E2 i testeja que funcionen.
 
+const Persona = require('../app/arrowfunctions.js');
 
-let persona = jest(new Persona("Tomas").dirNom());
-// The mock function is called twice
-expect(persona.mock.results.value.toBe(2));
+jest.mock('../app/arrowfunctions.js');
+
+test("Comprova la crida al constructor de la Classe Persona", () => {
+    const novaPersona = new Persona("Tomas").dirNom();
+    expect(novaPersona.dirNom()).toBe("Tomas");
+})
 
 
 

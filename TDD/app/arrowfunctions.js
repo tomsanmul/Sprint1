@@ -13,8 +13,7 @@ class Persona {
     }
 }
 
-let parametre = "Tomas";
-let persona = new Persona(parametre).dirNom();
+
 
 
 
@@ -55,4 +54,8 @@ let ObjHotel2 = CrearHotel("Hotel Paris", 6, "33.834 m²");
 //console.log(ObjHotel1);
 //console.log(ObjHotel2);
 
-export default Persona;
+
+module.exports = {
+    Persona
+  }
+  
