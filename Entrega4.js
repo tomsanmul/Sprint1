@@ -51,7 +51,6 @@ const getSalary = (employee) =>
     });
 
 
-
 async function getAsyncEmployee(employeeId) {
     try {
         let objEmployee = await getEmployee(employeeId);
