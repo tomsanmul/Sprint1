@@ -107,7 +107,7 @@ const retornaDoble = async (numero) => {
                 resolve(numero * 2)
             }, 2000);
         } catch (error) {
-            console.log("Error, algún nombre no es numèric.");
+            reject(console.log("Error, algún nombre no es numèric."));
         }
     });
 

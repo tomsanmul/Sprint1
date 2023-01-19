@@ -85,12 +85,19 @@ function llistarArxius() {
     const os = require("os");
     const userHomeDir = os.homedir();  //retorna la ruta (PATH) del directori Usuari
     let arxius = fs.readdirSync(userHomeDir);
-    for (let i = 0; i < arxius.length; i++) {
-        console.log(arxius[i]);
-    }
+    console.table(arxius);
+
+    // Antiga manera de mostrar-ho:  (emb el console.table queda més elegant)
+    //for (let i = 0; i < arxius.length; i++) {
+    //    console.log(arxius[i]);
+    //}
+    
 }
 llistarArxius();
 */
+
+
+
 
 
 //---------------------------------------------------------------------------------
@@ -171,6 +178,7 @@ function encripta(nomFitxer) {
 encripta("fitxer64.txt");
 encripta("fitxerHex.txt");
 
+
 //Esborro els altres 3 fitxers:  archivo.txt, archivoHex.txt i archivo64.txt 
 fs = require('fs').promises
 const files = [
@@ -186,9 +194,9 @@ Promise.all(files.map(file => fs.unlink(file)))
     .catch(err => {
         console.error('Error al eliminar els fitxers "fitxerInicial.txt" , "fitxerHex.txt" i "fitxer64.txt"', err)
     })
+
+
 */
-
-
 
 
 //-----------------------------------------------------------------------------------------------------------------
